@@ -5,14 +5,14 @@
 
 template<typename T>
 class TPQueue {
-   private:
+    private:
     T *arr;
     int size;
     int begin,
         end;
     int count;
-   public:
-    TPQueue(int = 100);
+    public:
+    TPQueue(int q = 100);
     ~TPQueue();
     void push(const T &);
     T pop();
@@ -32,7 +32,7 @@ TPQueue<T>::~TPQueue() {
 }
 template<typename T>
 void TPQueue<T>::push(const T & item) {
-    assert ( count < size );
+  assert(count < size);
   if (count != 0) {
     for (int i = end - 1; i >= begin; i--) {
         if (arr[i].prior >= item.prior) {
@@ -47,9 +47,8 @@ void TPQueue<T>::push(const T & item) {
         }
     }
   }
-  else {
+  else 
     arr[begin] = item;
-  }
   end++;
   count++;
   if (end > size) {
@@ -58,16 +57,16 @@ void TPQueue<T>::push(const T & item) {
 }
 template<typename T>
 T TPQueue<T>::pop() {
-    assert( count > 0 );
+    assert(count > 0);
     T item = arr[begin++];
-    count--;   
+    count--;
     if (begin > size)
         begin -= size + 1;
     return item;
 }
 template<typename T>
 T TPQueue<T>::get() const {
-    assert( count > 0 );
+    assert(count > 0);
     return arr[begin];
 }
 template<typename T>
@@ -81,6 +80,6 @@ bool TPQueue<T>::isFull() const {
 struct SYM {
   char ch;
   int  prior;
-}
+};
 
 #endif // INCLUDE_TPQUEUE_H_
