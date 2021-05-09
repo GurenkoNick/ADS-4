@@ -5,13 +5,13 @@
 
 template<typename T>
 class TPQueue {
-     private:
+      private: 
     T *arr;
     int size;
     int begin,
         end;
     int count;
-     public:
+      public: 
     TPQueue();
     ~TPQueue();
     void push(const T &);
@@ -46,8 +46,9 @@ void TPQueue<T>::push(const T & item) {
           arr[i] = item;
         }
     }
-  } else
+  } else {
      arr[begin] = item;
+  }
   end++;
   count++;
   if (end > size) {
