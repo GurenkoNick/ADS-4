@@ -5,14 +5,14 @@
 
 template<typename T>
 class TPQueue {
-    private:
+     private:
     T *arr;
     int size;
     int begin,
         end;
     int count;
-    public:
-    TPQueue(int q = 100);
+     public:
+    TPQueue();
     ~TPQueue();
     void push(const T &);
     T pop();
@@ -21,8 +21,8 @@ class TPQueue {
     bool isFull() const;
 };
 template<typename T>
-TPQueue<T>::TPQueue(int sizePQueue) :
-    size(sizePQueue),
+TPQueue<T>::TPQueue():
+    size(100),
     begin(0), end(0), count(0) {
     arr = new T[size + 1];
 }
@@ -46,9 +46,8 @@ void TPQueue<T>::push(const T & item) {
           arr[i] = item;
         }
     }
-  }
-  else 
-    arr[begin] = item;
+  } else
+     arr[begin] = item;
   end++;
   count++;
   if (end > size) {
